@@ -12,6 +12,10 @@ public class Ui {
         System.out.println("1. Add client");
         System.out.println("2. Edit client");
         System.out.println("3. View clients");
+        System.out.println("4. Search by ID");
+        System.out.println("5. Search by name");
+        System.out.println("6. Remove by ID");
+        System.out.println("7. Save and Exit");
     }
 
     public void handleUserInput(int option) {
@@ -35,7 +39,6 @@ public class Ui {
             case 6:
                 // Remove by id
                 break;
-            // handle other options...
             case 7:
                 // save and exit
                 break;
