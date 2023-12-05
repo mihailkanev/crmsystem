@@ -26,7 +26,19 @@ public class Ui {
                 // View clients logic
                 clientService.viewClients();
                 break;
+            case 4:
+                // Search by Id
+                break;
+            case 5:
+                //Search by Name
+                break;
+            case 6:
+                // Remove by id
+                break;
             // handle other options...
+            case 7:
+                // save and exit
+                break;
             default:
                 System.out.println("Invalid option");
         }
