@@ -107,6 +107,10 @@ public class ClientService implements Service {
 
     @Override
     public void saveAndExit() {
-
+        System.out.println("Saving data and exiting...");
+        fileWriter.writeData(clientList);
+        scanner.close();
+        System.out.println("Data saved successfully. Exiting...");
+        System.exit(0);
     }
 }
