@@ -7,7 +7,7 @@ manage client information for a business.
 
 #Options:
 1. Add client
-2. Edit client by Id
+2. Edit client by ID
 3. View all clients
 4. Search client by ID
 5. Search client by name
