@@ -1,5 +1,8 @@
 package com.crmsystem.models;
 
+import com.crmsystem.fileio.DataValidation;
+
+import javax.xml.crypto.Data;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -22,8 +25,7 @@ public class ClientManager implements Manager {
                     service.addClient(client);
                     break;
                 case 2:
-                    System.out.println("Enter ID:");
-                    int clientToEdit = Integer.parseInt(scanner.nextLine().trim());
+                    int clientToEdit = DataValidation.getInt("Enter ID: ");
                     Client existingClient = service.getClientById(clientToEdit);
 
                     if (existingClient != null) {
@@ -42,8 +44,7 @@ public class ClientManager implements Manager {
                     service.viewClients();
                     break;
                 case 4:
-                    System.out.println("Enter ID:");
-                    int clientToFindById = Integer.parseInt(scanner.nextLine().trim());
+                    int clientToFindById = DataValidation.getInt("Enter ID: ");
                     Client existingClientById = service.getClientById(clientToFindById);
 
                     if (existingClientById != null) {
@@ -53,8 +54,7 @@ public class ClientManager implements Manager {
                     }
                     break;
                 case 5:
-                    System.out.println("Enter Name:");
-                    String clientToFindByName = scanner.nextLine().trim();
+                    String clientToFindByName = DataValidation.getString("Enter Name: ");
                     Map<String, Client> matchingClients = service.searchClientByName(clientToFindByName);
 
                     if (!matchingClients.isEmpty()) {
@@ -68,8 +68,7 @@ public class ClientManager implements Manager {
                     }
                     break;
                 case 6:
-                    System.out.println("Enter user ID");
-                    int removeId = Integer.parseInt(scanner.nextLine().trim());
+                    int removeId = DataValidation.getInt("Enter user ID: ");
                     if (removeId != 0) {
                         service.removeClient(removeId);
                     } else {
@@ -90,24 +89,15 @@ public class ClientManager implements Manager {
     private Client gatherClientInformation() {
         System.out.println("Enter client details:");
 
-        System.out.print("ID: ");
-        int id = scanner.nextInt();
+        int id = DataValidation.getInt("ID: ");
 
-        scanner.nextLine();
+        String name = DataValidation.getString("Name: ");
 
-        System.out.print("Name: ");
-        String name = scanner.nextLine();
+        String industry = DataValidation.getString("Industry: ");
 
-        System.out.print("Industry: ");
-        String industry = scanner.nextLine();
+        String contactPerson = DataValidation.getString("Contact Person: ");
 
-        System.out.print("Contact Person: ");
-        String contactPerson = scanner.nextLine();
-
-        System.out.print("Revenue: ");
-        double revenue = scanner.nextDouble();
-
-        scanner.nextLine();
+        double revenue = DataValidation.getDouble("Revenue");
 
         return new Client(id, name, industry, contactPerson, revenue);
     }
